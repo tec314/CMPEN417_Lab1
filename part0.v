@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02/04/2025 11:34:28 AM
+// Create Date: 02/04/2025 11:29:09 AM
 // Design Name: 
 // Module Name: part0
 // Project Name: 
@@ -21,15 +21,15 @@
 
 
 module part0(
-    input a, b, cin,
-    output sum, cout
-    );
-    
-    wire sum1, sum2, carry1, carry2;
-    xor(sum1, a, b);
-    xor(sum, sum1, cin);
-    and(carry1, a, b);
-    and(carry2, sum1, cin);
-    or(cout, carry1, carry2);
-    
+input a, b, cin,
+output sum, out
+);
+wire abxor;
+wire aband;
+wire cinand;
+xor xor1(abxor, a, b);
+xor xor2(sum, abxor, cin);
+and and1(aband, a,b);
+and and2(cinand, abxor, cin);
+or or1(out, cinand, aband);
 endmodule
