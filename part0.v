@@ -24,5 +24,15 @@ module full_adder (
     input a, b, cin,
     output sum, cout
 );
-    assign {cout, sum} = a + b + cin;
+    wire w1, w2, w3;
+    
+    // Sum calculation using XOR gates
+    xor (w1, a, b);
+    xor (sum, w1, cin);
+    
+    // Carry-out calculation using AND and OR gates
+    and (w2, a, b);
+    and (w3, w1, cin);
+    or (cout, w2, w3);
+    
 endmodule
