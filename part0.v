@@ -22,7 +22,7 @@
 
 module part0(
 input a, b, cin,
-output sum, out
+output sum, cout
 );
 wire abxor;
 wire aband;
@@ -31,5 +31,5 @@ xor xor1(abxor, a, b);
 xor xor2(sum, abxor, cin);
 and and1(aband, a,b);
 and and2(cinand, abxor, cin);
-or or1(out, cinand, aband);
+or or1(cout, cinand, aband);
 endmodule
