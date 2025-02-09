@@ -22,12 +22,17 @@
 
 module part0(
     input a, b, cin,
-    output sum, cout
+    output s, cout
     );
     
-    wire sum1, sum2, carry1, carry2;
+    //Declare the wires
+    wire sum1, carry1, carry2;
+    
+    //Calculate the sum using xor
     xor(sum1, a, b);
-    xor(sum, sum1, cin);
+    xor(s, sum1, cin);
+    
+    //Calculate the carry using and and or gates
     and(carry1, a, b);
     and(carry2, sum1, cin);
     or(cout, carry1, carry2);
