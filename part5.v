@@ -56,7 +56,7 @@ genvar i;
                 .a(a[(i+1)*4-1:i*4]),
                 .b(b[(i+1)*4-1:i*4]),
                 .cin(carry[i]), //Set to cin for first adder
-                .s(s[(i+1)*16-1:i*16]),
+                .s(s[(i+1)*4-1:i*4]),
                 .cout(carry[i+1])
             );
         end
